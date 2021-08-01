@@ -8,12 +8,12 @@ import { GetTaskFilteredDTO } from './dto/get-task-filtered.dto';
 export class TasksService {
   private tasks: Task[] = [];
 
-  getAllTasks() {
+  getAllTasks(): Task[] {
     return this.tasks;
   }
 
-  getTasksFiltered(filteredDTO: GetTaskFilteredDTO): Task[] {
-    let tasks = this.tasks;
+  getTasksWithFilter(filteredDTO: GetTaskFilteredDTO): Task[] {
+    let tasks = this.getAllTasks();
     const { status, search } = filteredDTO;
     if (status) {
       tasks = tasks.filter((task) => task.status === status);

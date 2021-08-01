@@ -20,7 +20,7 @@ export class TasksController {
   @Get()
   getTasks(@Query() filteredDTO: GetTaskFilteredDTO): Task[] {
     if (Object.keys(filteredDTO).length) {
-      return this.taskService.getTasksFiltered(filteredDTO);
+      return this.taskService.getTasksWithFilter(filteredDTO);
     } else {
       return this.taskService.getAllTasks();
     }
